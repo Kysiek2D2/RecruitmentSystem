@@ -1,5 +1,12 @@
 # What is this app?
-TBD
+That app helps to conduct interviews for Java Software Developer roles.
+It includes:
+* Set of theory questions
+* Spring application with:
+  * H2 SQL database setup
+  * Tests
+* Practical tasks with solutions (Java and SQL)
+* Main.java class to quickly test code
 
 # Folder structure
 src -> main -> java -> com.recruitment.recruitmentsystem contains:
