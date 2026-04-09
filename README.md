@@ -18,7 +18,7 @@ src -> main -> java -> com.recruitment.recruitmentsystem contains:
   * solutions to above tasks
 
 # How to run it.
-### Get dependencies
+### Get dependencies and build
 In terminal: mvn clean install
 
 Maven will handle dependencies.
