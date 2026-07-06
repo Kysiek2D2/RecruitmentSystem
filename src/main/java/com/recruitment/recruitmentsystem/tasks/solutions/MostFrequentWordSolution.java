@@ -4,7 +4,10 @@ import java.util.*;
 
 public class MostFrequentWordSolution {
 
-    public static String mostFrequentWord(String text) {
+    /**
+    * This is the best solution with HashMap
+    */
+    public static String mostFrequentWordBest1(String text) {
         if(text == null || text.isEmpty()){
             return "";
         }
@@ -37,7 +40,7 @@ public class MostFrequentWordSolution {
      * @param text - strings separated by space
      * @return
      */
-    public static String mostFrequentWord2(String text) {
+    public static String mostFrequentWordSimple1(String text) {
         if(text == null || text.isEmpty()){
             return "";
         }
@@ -62,5 +65,44 @@ public class MostFrequentWordSolution {
         }
 
         return mostCommonWord;
+    }
+
+    /**
+     * This is VERY simple solution with for loops and no HashMap (version 2).
+     * It has worse performance than HashMap solution, but it's VERY simple.
+     */
+    public static String mostFrequentWordSimple2(String text) {
+        Map<String, Integer> result = new HashMap<>();
+        String buffer="";
+        char[] textChar = text.toCharArray();
+        for(int i = 0; i < text.length(); i++){
+            if(textChar[i] == ' ' || i == text.length()-1){
+                if(result.get(buffer) != null){
+
+                    buffer.trim();
+                    result.put(buffer, result.get(buffer)+1);
+                }
+                else{
+                    result.put(buffer, 1);
+                }
+                buffer="";
+            }
+            else
+                buffer += textChar[i];
+        }
+
+        String resultString = "";
+        int resultOccurances = 0;
+
+        for(var r : result.entrySet()){
+            System.out.println(r.getKey() + " "+ r.getValue());
+            if(r.getValue() > resultOccurances){
+
+                resultOccurances = r.getValue();
+                resultString = r.getKey();
+            }
+        }
+
+        return resultString;
     }
 }
